@@ -53,7 +53,8 @@ function App() {
         <TextField  
           inputRef={valueRef}
           placeholder="0x......."
-          sx={{ 'backgroundColor': '#cdfdff', 'width': '50%' }}
+          size='small'
+          sx={{ 'backgroundColor': '#cdfdff', 'width': '50%' , 'borderRadius':'15px','border':'0px'}}
           InputProps={{
             endAdornment: (
               <Stack direction="row" spacing={1}>
