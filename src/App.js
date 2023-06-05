@@ -4,6 +4,7 @@ import { useRef, useState } from 'react';
 import { HoneypotIsV1 } from '@normalizex/honeypot-is';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
+import { getPairInformationByChain } from 'dexscreener-api';
 
 function App() {
 
@@ -33,7 +34,13 @@ function App() {
         CHAIN_ID
       ).then((result) => {
         console.log(result)
-        setTokenScanData(result)
+
+        getPairInformationByChain("ethereum",result.PairAddress).then((response)=>{
+          result.priceUsd=response.pair.priceUsd;
+          result.priceNative=response.pair.priceNative;
+          setTokenScanData(result)
+        })
+        
         handleClose();
       }).catch(Error => {
         handleClose();
@@ -116,6 +123,11 @@ function App() {
               <p className="caption">{!tokenScanData.IsHoneypot?'PASSED':'FAILED'}</p>
             </button> 
           </div>
+          <div className="menu">
+            <button className="menuitem"> <span className="entypo-right-open" />
+              <p className="caption">{!tokenScanData.IsHoneypot?'PASSED':'FAILED'}</p>
+            </button> 
+          </div>
 
         </div>
         <div id="rightmenu"> 
@@ -123,6 +135,15 @@ function App() {
         <p className="title">Price Info</p>
           <div className="hline title_underline"></div> 
  
+
+          <span className="menuitem entypo-gauge" style={{ 'fontSize': '30px', 'marginLeft': '10px' }}>
+            <p id="cpu" className="caption" style={{ 'fontSize': '20px', 'marginLeft': '10px' }}>Price(USD): {tokenScanData.priceUsd}</p>
+          </span> <br />
+
+
+          <span className="menuitem entypo-gauge" style={{ 'fontSize': '30px', 'marginLeft': '10px' }}>
+            <p id="cpu" className="caption" style={{ 'fontSize': '20px', 'marginLeft': '10px' }}>Price(ETH): {tokenScanData.priceNative}</p>
+          </span> <br /><br /><br /><br />
 
           <span className="menuitem entypo-chart-area" style={{ 'fontSize': '10px', 'marginLeft': '10px' }}>
             <p id="ram" className="caption" style={{ 'fontSize': '20px', 'marginLeft': '10px' }}>Liquidity: {Number(tokenScanData.Pair.Liquidity).toFixed(0)}</p>
