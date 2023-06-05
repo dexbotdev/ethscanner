@@ -50,11 +50,10 @@ function App() {
     <div>
 
       <div style={{ 'marginTop': '60px', 'textAlign': 'center' }}>
-        <TextField
-          label="Input Token Address"
+        <TextField  
           inputRef={valueRef}
           placeholder="0x......."
-          sx={{ 'backgroundColor': '#fdfdff', 'width': '50%', 'borderRadius': '20px' }}
+          sx={{ 'backgroundColor': '#cdfdff', 'width': '50%' }}
           InputProps={{
             endAdornment: (
               <Stack direction="row" spacing={1}>
@@ -134,7 +133,7 @@ function App() {
           <p className="title">Network Info</p>
           <div className="hline title_underline"></div> 
           <div id="date_time">
-            <div id="date" className="semi_arc e4">
+            <div id="date" className="semi_arc e4"> 
               <div className="semi_arc_2 e4_1">
                 <div className="counterspin4"></div>
               </div>
