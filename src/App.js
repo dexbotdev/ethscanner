@@ -81,12 +81,12 @@ function App() {
               <div className="semi_arc_2 e4_1">
                 <div className="counterspin4"></div>
               </div>
-              <div style={{ 'fontSize': '40px', 'marginTop': '25px' }}>{tokenScanData.SellTax}</div>
-              <div style={{ 'fontSize': '25px' }}>Sell Tax</div>
+              <div style={{ 'fontSize': '20px', 'marginTop': '25px' }}>{Number(tokenScanData.SellTax).toFixed(2)}</div>
+              <div style={{ 'fontSize': '20px' }}>Sell Tax</div>
             </div>
 
             <div id="time" className="arc e1">
-              <div style={{ 'fontSize': '23px', 'marginLeft': '-10px', 'marginTop': '23px' }}>{tokenScanData.BuyTax}</div>
+              <div style={{ 'fontSize': '17px', 'marginLeft': '-10px', 'marginTop': '23px' }}>{tokenScanData.BuyTax}</div>
                <div style={{ 'fontSize': '17px', 'marginTop': '10px' }}>Buy Tax</div>
             </div>
           </div>
@@ -124,13 +124,13 @@ function App() {
           <div className="hline title_underline"></div> 
  
 
-          <span className="menuitem entypo-chart-area" style={{ 'fontSize': '30px', 'marginLeft': '10px' }}>
-            <p id="ram" className="caption" style={{ 'fontSize': '20px', 'marginLeft': '10px' }}>Liquidity: {tokenScanData.Pair.Liquidity}</p>
+          <span className="menuitem entypo-chart-area" style={{ 'fontSize': '10px', 'marginLeft': '10px' }}>
+            <p id="ram" className="caption" style={{ 'fontSize': '20px', 'marginLeft': '10px' }}>Liquidity: {Number(tokenScanData.Pair.Liquidity).toFixed(0)}</p>
           </span> <br />
-          <span className="menuitem entypo-chart-area" style={{ 'fontSize': '30px', 'marginLeft': '10px' }}>
-            <p id="ram" className="caption" style={{ 'fontSize': '20px', 'marginLeft': '10px' }}>MarketCap: {tokenScanData.Pair.Liquidity}</p>
+          <span className="menuitem entypo-chart-area" style={{ 'fontSize': '10px', 'marginLeft': '10px' }}>
+            <p id="ram" className="caption" style={{ 'fontSize': '20px', 'marginLeft': '10px' }}>MarketCap: {Number(tokenScanData.Pair.Liquidity).toFixed(0)}</p>
           </span> <br />
- 
+          <br /><br /><br />
           <p className="title">Network Info</p>
           <div className="hline title_underline"></div> 
           <div id="date_time">
@@ -138,12 +138,12 @@ function App() {
               <div className="semi_arc_2 e4_1">
                 <div className="counterspin4"></div>
               </div>
-              <div style={{ 'fontSize': '40px', 'marginTop': '25px' }}>{tokenScanData.BuyGas}</div>
+              <div style={{ 'fontSize': '20px', 'marginTop': '25px' }}>{tokenScanData.BuyGas}</div>
               <div style={{ 'fontSize': '25px' }}>Buy Gas</div>
             </div>
 
             <div id="time" className="arc e1">
-              <div style={{ 'fontSize': '23px', 'marginLeft': '-10px', 'marginTop': '23px' }}>{tokenScanData.SellGas}</div>
+              <div style={{ 'fontSize': '20px', 'marginLeft': '-10px', 'marginTop': '23px' }}>{tokenScanData.SellGas}</div>
                <div style={{ 'fontSize': '17px', 'marginTop': '10px' }}>Sell Gas</div>
             </div>
           </div>
