@@ -375,8 +375,7 @@ body {
   position: relative;
   background: rgba(0, 0, 0, 0.8);
   line-height: 0;
-}
-
+} 
 #date {
   position: relative;
   margin-top: 20px;
