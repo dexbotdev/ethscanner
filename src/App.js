@@ -59,8 +59,12 @@ function App() {
         console.log(result)
 
         getPairInformationByChain("ethereum",result.PairAddress).then((response)=>{
+
+          console.log(response);
+
           result.priceUsd=response.pair.priceUsd;
           result.priceNative=response.pair.priceNative;
+          result.fdv=response.pair?.fdv?response.pair?.fdv:0;
           setTokenScanData(result)
         })
         
@@ -119,7 +123,7 @@ function App() {
             </div>
 
             <div id="time" className="arc e1">
-              <div style={{ 'fontSize': '17px', 'marginLeft': '-10px', 'marginTop': '23px' }}>{tokenScanData.BuyTax}</div>
+              <div style={{ 'fontSize': '17px', 'marginLeft': '-10px', 'marginTop': '23px' }}>{Number(tokenScanData.BuyTax).toFixed(2)}</div>
                <div style={{ 'fontSize': '17px', 'marginTop': '10px' }}>Buy Tax</div>
             </div>
           </div>
@@ -174,7 +178,7 @@ function App() {
             <p id="ram" className="caption" style={{ 'fontSize': '20px', 'marginLeft': '10px' }}>Liquidity: {Number(tokenScanData.Pair.Liquidity).toFixed(0)}</p>
           </span> <br />
           <span className="menuitem entypo-chart-area" style={{ 'fontSize': '10px', 'marginLeft': '10px' }}>
-            <p id="ram" className="caption" style={{ 'fontSize': '20px', 'marginLeft': '10px' }}>MarketCap: {Number(tokenScanData.Pair.Liquidity).toFixed(0)}</p>
+            <p id="ram" className="caption" style={{ 'fontSize': '20px', 'marginLeft': '10px' }}>MarketCap: {Number(tokenScanData.fdv).toFixed(0)}</p>
           </span> <br />
           <br /><br /><br />
           <p className="titleRight">Network Info</p>
@@ -204,10 +208,11 @@ function App() {
             </div>
 
             <div id="time" className="arc e1">
-              <div style={{ 'fontSize': '17px', 'marginLeft': '-10px', 'marginTop': '23px' }}>{tokenScanData.BuyTax}</div>
+              <div style={{ 'fontSize': '17px', 'marginLeft': '-10px', 'marginTop': '23px' }}>{Number(tokenScanData.BuyTax).toFixed(2)}</div>
                <div style={{ 'fontSize': '17px', 'marginTop': '10px' }}>Buy Tax</div>
             </div>
           </div>
+
         </div>
         <div id="arc_container">
           <div className="arc_reactor">
