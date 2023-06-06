@@ -347,45 +347,53 @@ body {
 html,
 body {
   height: 100%;
-  overflow: hidden; 
+  overflow: scroll; 
 }
 
 /* Left Menu */
-#leftmenu {
-  position: fixed;
+#leftmenu { 
   float: left;
   margin-left: 50px;
   width: 30 0px;
 }
 
 #date_time {
-  margin-left: 30px;
+  margin-left: 30px; 
+  margin-bottom: 20px;
   width: 200px;
   height: 200px;
 }
 
 #time {
   margin-left: 110px;
-  position: fixed;
+  position: relative;
   background: rgba(0, 0, 0, 0.8);
   line-height: 0;
 }
 
 #date {
-  position: fixed;
+  position: relative;
   margin-top: 20px;
   background: rgba(0, 0, 0, 0.8);
 }
 
-.title {
+.titleLeft {
   font-size: 25px;
   font-weight: bolder;
   text-align: center;
   margin: 0;
-  margin-top: 5px;
+  margin-top: 84px;
   margin-left: -15px;
 }
 
+.titleRight {
+  font-size: 25px;
+  font-weight: bolder;
+  text-align: center;
+  margin: 0;
+  margin-top: 25px;
+  margin-left: -15px;
+}
 .title_underline {
   border-color: rgba(2, 255, 255, 0.5);
 }
@@ -479,10 +487,11 @@ ul {
 }
 
 #arc_container {
-  position: fixed;
+  position: relative;
   width: 100%;
   height: 100%;
   z-index: -1;
+  margin-top: 200px;
 }
 
 .arc_reactor {

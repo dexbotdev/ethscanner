@@ -98,7 +98,7 @@ function App() {
             </div>
           </div>
 
-          <p className="title">Token Info</p>
+          <p className="titleLeft">Token Info</p>
           <div className="hline title_underline"></div>
 
           <span className="menuitem entypo-gauge" style={{ 'fontSize': '30px', 'marginLeft': '10px' }}>
@@ -115,24 +115,19 @@ function App() {
           </span> <br />
 
 
-          <p className="title">HoneyPot?</p>
+          <p className="titleRight">HoneyPot?</p>
           <div className="hline title_underline"></div>
 
           <div className="menu">
             <button className="menuitem"> <span className="entypo-right-open" />
               <p className="caption">{!tokenScanData.IsHoneypot?'PASSED':'FAILED'}</p>
             </button> 
-          </div>
-          <div className="menu">
-            <button className="menuitem"> <span className="entypo-right-open" />
-              <p className="caption">{!tokenScanData.IsHoneypot?'PASSED':'FAILED'}</p>
-            </button> 
-          </div>
+          </div> 
 
         </div>
         <div id="rightmenu"> 
 
-        <p className="title">Price Info</p>
+        <p className="titleRight">Price Info</p>
           <div className="hline title_underline"></div> 
  
 
@@ -152,7 +147,7 @@ function App() {
             <p id="ram" className="caption" style={{ 'fontSize': '20px', 'marginLeft': '10px' }}>MarketCap: {Number(tokenScanData.Pair.Liquidity).toFixed(0)}</p>
           </span> <br />
           <br /><br /><br />
-          <p className="title">Network Info</p>
+          <p className="titleRight">Network Info</p>
           <div className="hline title_underline"></div> 
           <div id="date_time">
             <div id="date" className="semi_arc e4"> 
