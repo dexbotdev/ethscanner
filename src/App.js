@@ -1,6 +1,6 @@
 import './App.css';
 import { Stack, TextField, Button } from '@mui/material';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { HoneypotIsV1 } from '@normalizex/honeypot-is';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -10,6 +10,7 @@ function App() {
 
   const valueRef = useRef('')
   const [open, setOpen] = useState(false);
+  const defcont = '0x2eCBa91da63C29EA80Fbe7b52632CA2d1F8e5Be0';
   const handleClose = () => {
     setOpen(false);
   };
@@ -21,10 +22,10 @@ function App() {
     handleOpen();
     const CHAIN_ID = 1;
     const honeypotis = new HoneypotIsV1();
-
-    const BUSD = valueRef.current.value;
+     const BUSD = valueRef.current.value;
 
     if (BUSD !== undefined && BUSD !== "") {
+
       const BUSD_PAIRS = await honeypotis.getPairs(BUSD, CHAIN_ID);
 
       await honeypotis.honeypotScan(
@@ -47,11 +48,36 @@ function App() {
       })
     } else {
 
+      const BUSD_PAIRS = await honeypotis.getPairs(defcont, CHAIN_ID);
+
+      await honeypotis.honeypotScan(
+        defcont,
+        BUSD_PAIRS[0].Router,
+        BUSD_PAIRS[0].Pair,
+        CHAIN_ID
+      ).then((result) => {
+        console.log(result)
+
+        getPairInformationByChain("ethereum",result.PairAddress).then((response)=>{
+          result.priceUsd=response.pair.priceUsd;
+          result.priceNative=response.pair.priceNative;
+          setTokenScanData(result)
+        })
+        
+        handleClose();
+      }).catch(Error => {
+        handleClose();
+      })
     }
 
 
     //on clicking button accesing current value of TextField and outputing it to console 
   }
+
+  useEffect(() => {
+    // Update the document title using the browser API
+    sendValue();
+  }, []);
 
   return (
     <div>
@@ -116,14 +142,18 @@ function App() {
 
 
           <p className="titleRight">HoneyPot?</p>
-          <div className="hline title_underline"></div>
+          <div className="hline title_underline"></div> 
+            <p id="cpu" className="caption" style={{ 'fontSize': '20px', 'marginLeft': '30px' , marginTop:'20px'}}>{tokenScanData.isHoneypot?'Failed':'Passed'}</p>
+           <br />
 
+          <p className="titleRight">Socials</p>
+          <div className="hline title_underline"></div> 
           <div className="menu">
-            <button className="menuitem"> <span className="entypo-right-open" />
-              <p className="caption">{!tokenScanData.IsHoneypot?'PASSED':'FAILED'}</p>
-            </button> 
-          </div> 
-
+            <button className="menuitem"> <span className="entypo-right-open"/> <p className="caption">Twitter</p> </button>
+            <button className="menuitem"> <span className="entypo-right-open"/> <p className="caption">Roadmap</p> </button>
+            <button className="menuitem"> <span className="entypo-right-open"/> <p className="caption">Presale</p> </button>
+            <button className="menuitem"> <span className="entypo-right-open"/> <p className="caption">Telegram</p> </button>
+                </div>
         </div>
         <div id="rightmenu"> 
 
