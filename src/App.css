@@ -363,7 +363,13 @@ body {
   width: 200px;
   height: 200px;
 }
-
+#date_time2 {
+  margin-top: 20px;;
+  margin-left: 30px; 
+  margin-bottom: 20px;
+  width: 200px;
+  height: 200px;
+}
 #time {
   margin-left: 110px;
   position: relative;

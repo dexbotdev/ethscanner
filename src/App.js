@@ -163,6 +163,21 @@ function App() {
                <div style={{ 'fontSize': '17px', 'marginTop': '10px' }}>Sell Gas</div>
             </div>
           </div>
+
+          <div id="date_time2">
+            <div id="date" className="semi_arc e4">
+              <div className="semi_arc_2 e4_1">
+                <div className="counterspin4"></div>
+              </div>
+              <div style={{ 'fontSize': '20px', 'marginTop': '25px' }}>{Number(tokenScanData.SellTax).toFixed(2)}</div>
+              <div style={{ 'fontSize': '20px' }}>Sell Tax</div>
+            </div>
+
+            <div id="time" className="arc e1">
+              <div style={{ 'fontSize': '17px', 'marginLeft': '-10px', 'marginTop': '23px' }}>{tokenScanData.BuyTax}</div>
+               <div style={{ 'fontSize': '17px', 'marginTop': '10px' }}>Buy Tax</div>
+            </div>
+          </div>
         </div>
         <div id="arc_container">
           <div className="arc_reactor">
